@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header{
+    min-height: 64px;
+    padding: 8px 24px 0;
+}
+.container{
+    margin-left: 5%;
+    width: 60%;
+    float: left;
+    margin-right:5%;
+}

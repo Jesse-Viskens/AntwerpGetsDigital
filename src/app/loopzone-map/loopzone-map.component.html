@@ -1,0 +1,7 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+    <span *ngFor="let zone of rings">
+        <span *ngFor="let loc of zone.marks">
+            <agm-marker [latitude]="loc.lat" [longitude]="loc.lng"></agm-marker>
+        </span>
+    </span>
+</agm-map>

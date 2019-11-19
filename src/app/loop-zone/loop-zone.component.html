@@ -1,0 +1,62 @@
+<h1>Alle loopzones van Antwerpen</h1>
+<mat-form-field>
+    <mat-label>Select District</mat-label>
+    <mat-select (selectionChange)="FilterDistrictNames($event)">
+      <mat-option *ngFor="let feature of DropdownData" [value]="feature.attributes.DISTRICT">
+        {{feature.attributes.DISTRICT}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<div class="container mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="STRAATNAAM">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Straatnaam</th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.STRAATNAAM}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="POSTCODE">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Zip-code </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.POSTCODE}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DISTRICT">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> District </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.DISTRICT}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="HOOGTE_AFSLUITING">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Height fence </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.HOOGTE_AFSLUITING}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="AANTAL_VUILNISBAKKEN">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount of garbage bins </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.AANTAL_VUILNISBAKKEN}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="AANTAL_ZITBANKEN">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount of benches </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.AANTAL_ZITBANKEN}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TYPE_ONDERGROND">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type of surface </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.TYPE_ONDERGROND}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TYPE_BEPLANTING">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type of vegitation </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.TYPE_BEPLANTING}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="QUOTERING_ALGEMEEN">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quoting </th>
+        <td mat-cell *matCellDef="let element"> {{element.attributes.QUOTERING_ALGEMEEN}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>    
+<mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+</div>
